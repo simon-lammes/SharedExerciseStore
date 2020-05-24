@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, getAssetPath, h, Host, Prop} from '@stencil/core';
-import {ExerciseState} from '../../../utils/flutter_interface';
+import {ExerciseState, requestNextExercise} from '../../../utils/flutter_interface';
 
 @Component({
   tag: 'exercise-frame',
@@ -14,6 +14,10 @@ export class ExerciseFrame implements ComponentInterface {
     console.log(this.state);
   }
 
+  requestNextExercise() {
+    requestNextExercise();
+  }
+
   render() {
     return (
       <Host>
@@ -22,6 +26,7 @@ export class ExerciseFrame implements ComponentInterface {
           <div class={'feedback-row ' + this.state}>
             <img class="feedback-image" src={getAssetPath(`./assets/${this.state}.svg`)} alt=""/>
             <slot name="explanation"/>
+            <button onClick={this.requestNextExercise.bind(this)}>Next exercise</button>
           </div>
         ]}
         <slot name="exercise"/>

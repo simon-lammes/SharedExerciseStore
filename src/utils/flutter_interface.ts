@@ -1,5 +1,6 @@
 declare const Failure;
 declare const Success;
+declare const RequestNextExercise;
 
 export type ExerciseState = 'active' | 'success' | 'failure';
 
@@ -25,4 +26,15 @@ export function success(): ExerciseState {
     console.log('success');
   }
   return 'success';
+}
+
+/**
+ * Tells the flutter app that the user is finished with this exercise and wants to see the next one.
+ */
+export function requestNextExercise() {
+  try {
+    RequestNextExercise.postMessage('');
+  } catch (e) {
+    console.log('next exercise requested');
+  }
 }

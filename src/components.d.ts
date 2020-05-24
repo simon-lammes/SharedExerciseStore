@@ -5,11 +5,29 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ExerciseState, } from "./utils/flutter_interface";
 export namespace Components {
+    interface ExerciseBreadthFirstSearch {
+    }
+    interface ExerciseFrame {
+        "state": ExerciseState;
+    }
     interface ExerciseTest {
     }
 }
 declare global {
+    interface HTMLExerciseBreadthFirstSearchElement extends Components.ExerciseBreadthFirstSearch, HTMLStencilElement {
+    }
+    var HTMLExerciseBreadthFirstSearchElement: {
+        prototype: HTMLExerciseBreadthFirstSearchElement;
+        new (): HTMLExerciseBreadthFirstSearchElement;
+    };
+    interface HTMLExerciseFrameElement extends Components.ExerciseFrame, HTMLStencilElement {
+    }
+    var HTMLExerciseFrameElement: {
+        prototype: HTMLExerciseFrameElement;
+        new (): HTMLExerciseFrameElement;
+    };
     interface HTMLExerciseTestElement extends Components.ExerciseTest, HTMLStencilElement {
     }
     var HTMLExerciseTestElement: {
@@ -17,13 +35,22 @@ declare global {
         new (): HTMLExerciseTestElement;
     };
     interface HTMLElementTagNameMap {
+        "exercise-breadth-first-search": HTMLExerciseBreadthFirstSearchElement;
+        "exercise-frame": HTMLExerciseFrameElement;
         "exercise-test": HTMLExerciseTestElement;
     }
 }
 declare namespace LocalJSX {
+    interface ExerciseBreadthFirstSearch {
+    }
+    interface ExerciseFrame {
+        "state"?: ExerciseState;
+    }
     interface ExerciseTest {
     }
     interface IntrinsicElements {
+        "exercise-breadth-first-search": ExerciseBreadthFirstSearch;
+        "exercise-frame": ExerciseFrame;
         "exercise-test": ExerciseTest;
     }
 }
@@ -31,6 +58,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "exercise-breadth-first-search": LocalJSX.ExerciseBreadthFirstSearch & JSXBase.HTMLAttributes<HTMLExerciseBreadthFirstSearchElement>;
+            "exercise-frame": LocalJSX.ExerciseFrame & JSXBase.HTMLAttributes<HTMLExerciseFrameElement>;
             "exercise-test": LocalJSX.ExerciseTest & JSXBase.HTMLAttributes<HTMLExerciseTestElement>;
         }
     }

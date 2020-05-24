@@ -1,0 +1,59 @@
+:host {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+slot[name=job-description]::slotted(*) {
+  background-color: lightcyan;
+  padding: 20px;
+  margin: 0;
+}
+
+slot[name=explanation]::slotted(*) {
+  width: auto;
+  padding: 20px;
+  margin: 0;
+}
+
+slot[name=exercise]::slotted(*) {
+  margin-top: 5pt;
+  width: 100%;
+  min-height: 300pt;
+}
+
+.feedback-image {
+  height: auto;
+  width: auto;
+}
+
+.feedback-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10pt;
+}
+
+@media only screen and (max-width: 600px) {
+  .feedback-row {
+    flex-direction: column;
+  }
+}
+
+.feedback-row.success {
+  background-color: greenyellow;
+}
+
+.feedback-row.failure {
+  background-color: indianred;
+}
+
+.feedback-row * {
+  display: flex;
+  align-items: center;
+}

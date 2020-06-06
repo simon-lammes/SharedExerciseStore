@@ -3,7 +3,7 @@ import {ExerciseState, requestNextExercise} from '../../../utils/flutter_interfa
 
 @Component({
   tag: 'exercise-frame',
-  styleUrl: 'exercise-frame.css',
+  styleUrl: 'exercise-frame.scss',
   assetsDirs: ['assets'],
   shadow: true,
 })
@@ -23,10 +23,10 @@ export class ExerciseFrame implements ComponentInterface {
       <Host>
         <slot name="job-description"/>
         {this.state === 'active' ? null : [
-          <div class={'feedback-row ' + this.state}>
+          <div class="feedback-row">
             <img class="feedback-image" src={getAssetPath(`./assets/${this.state}.svg`)} alt=""/>
             <slot name="explanation"/>
-            <button onClick={this.requestNextExercise.bind(this)}>Next exercise</button>
+            <button class="button is-link" onClick={this.requestNextExercise.bind(this)}>Next exercise</button>
           </div>
         ]}
         <slot name="exercise"/>

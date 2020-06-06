@@ -1,13 +1,4 @@
-:host {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: auto;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-}
+@import '../../../../node_modules/bulma/bulma.sass';
 
 slot[name=job-description]::slotted(*) {
   background-color: lightcyan;
@@ -24,12 +15,12 @@ slot[name=explanation]::slotted(*) {
 slot[name=exercise]::slotted(*) {
   margin-top: 5pt;
   width: 100%;
-  min-height: 300pt;
 }
 
 .feedback-image {
   height: auto;
   width: auto;
+  max-height: 100pt;
 }
 
 .feedback-row {
@@ -37,6 +28,11 @@ slot[name=exercise]::slotted(*) {
   flex-direction: row;
   align-items: center;
   padding: 10pt;
+
+  * {
+    display: flex;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -45,15 +41,3 @@ slot[name=exercise]::slotted(*) {
   }
 }
 
-.feedback-row.success {
-  background-color: greenyellow;
-}
-
-.feedback-row.failure {
-  background-color: indianred;
-}
-
-.feedback-row * {
-  display: flex;
-  align-items: center;
-}

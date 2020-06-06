@@ -6,7 +6,7 @@ import {ExerciseState, failure, success} from '../../../utils/flutter_interface'
 
 @Component({
   tag: 'exercise-breadth-first-search',
-  styleUrl: 'breadth-first-search.css',
+  styleUrl: 'breadth-first-search.scss',
   shadow: true,
 })
 export class BreadthFirstSearch implements ComponentInterface {
@@ -101,7 +101,7 @@ export class BreadthFirstSearch implements ComponentInterface {
           node 1, it visits all neighbors of node 2 because this was the second node visited. We end up with the
           order: {this.solution.toLocaleString()}.
         </p>
-        <div slot="exercise" class="container" ref={(el) => this.networkContainer = el as HTMLElement}>
+        <div slot="exercise" class="network-container" ref={(el) => this.networkContainer = el as HTMLElement}>
         </div>
       </exercise-frame>
     );

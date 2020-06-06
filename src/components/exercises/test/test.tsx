@@ -3,7 +3,7 @@ import {ExerciseState, failure, success} from '../../../utils/flutter_interface'
 
 @Component({
   tag: 'exercise-test',
-  styleUrl: 'test.css',
+  styleUrl: 'test.scss',
   shadow: true
 })
 export class Test implements ComponentInterface {
@@ -31,9 +31,9 @@ export class Test implements ComponentInterface {
             The result of this test should be logged in the console.
           </p>
         </div>
-        <div slot="exercise">
-          <button onClick={this.successButtonClicked.bind(this)}>Success</button>
-          <button onClick={this.failureButtonClicked.bind(this)}>Failure</button>
+        <div slot="exercise" class="buttons are-large">
+          <button class="button is-success is-fullwidth" onClick={this.successButtonClicked.bind(this)}>Success</button>
+          <button class="button is-danger is-fullwidth" onClick={this.failureButtonClicked.bind(this)}>Failure</button>
         </div>
       </exercise-frame>
     </div>;

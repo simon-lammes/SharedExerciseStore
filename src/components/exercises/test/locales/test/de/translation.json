@@ -1,0 +1,10 @@
+{
+  "job": {
+    "explanation": "Das Ergebnis sollte in der Konsole des Browsers geloggt sein.",
+    "description": "Das hier ist eine Testaufgabe. Wenn du auf Erfolg klickst, simuliert das Programm, dass du eine Aufgabe erfolgreich erledigt hast."
+  },
+  "shared": {
+    "failure": "Scheitern",
+    "success": "Erfolg"
+  }
+}

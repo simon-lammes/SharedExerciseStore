@@ -1,0 +1,6 @@
+{
+  "job": {
+    "explanation": "Die richtige Reihenfolge ist: {{value}}.",
+    "description": "Deine Aufgabe ist es, den folgenden Graph mithilfe der Breitensuche zu durchwandern. Klicke immer wieder auf die nächsten Knoten, der besucht wird bis alle Knoten besucht wurden. Starte mit Knoten 1. Wenn mehrere Knoten zur Auswahl stehen, wähle den Knoten mit der kleinsten Nummer."
+  }
+}

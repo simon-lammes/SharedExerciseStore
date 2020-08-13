@@ -12,6 +12,8 @@ export namespace Components {
     interface ExerciseFrame {
         "state": ExerciseState;
     }
+    interface ExercisePicker {
+    }
     interface ExerciseTest {
     }
 }
@@ -28,6 +30,12 @@ declare global {
         prototype: HTMLExerciseFrameElement;
         new (): HTMLExerciseFrameElement;
     };
+    interface HTMLExercisePickerElement extends Components.ExercisePicker, HTMLStencilElement {
+    }
+    var HTMLExercisePickerElement: {
+        prototype: HTMLExercisePickerElement;
+        new (): HTMLExercisePickerElement;
+    };
     interface HTMLExerciseTestElement extends Components.ExerciseTest, HTMLStencilElement {
     }
     var HTMLExerciseTestElement: {
@@ -37,6 +45,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "exercise-breadth-first-search": HTMLExerciseBreadthFirstSearchElement;
         "exercise-frame": HTMLExerciseFrameElement;
+        "exercise-picker": HTMLExercisePickerElement;
         "exercise-test": HTMLExerciseTestElement;
     }
 }
@@ -46,11 +55,14 @@ declare namespace LocalJSX {
     interface ExerciseFrame {
         "state"?: ExerciseState;
     }
+    interface ExercisePicker {
+    }
     interface ExerciseTest {
     }
     interface IntrinsicElements {
         "exercise-breadth-first-search": ExerciseBreadthFirstSearch;
         "exercise-frame": ExerciseFrame;
+        "exercise-picker": ExercisePicker;
         "exercise-test": ExerciseTest;
     }
 }
@@ -60,6 +72,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "exercise-breadth-first-search": LocalJSX.ExerciseBreadthFirstSearch & JSXBase.HTMLAttributes<HTMLExerciseBreadthFirstSearchElement>;
             "exercise-frame": LocalJSX.ExerciseFrame & JSXBase.HTMLAttributes<HTMLExerciseFrameElement>;
+            "exercise-picker": LocalJSX.ExercisePicker & JSXBase.HTMLAttributes<HTMLExercisePickerElement>;
             "exercise-test": LocalJSX.ExerciseTest & JSXBase.HTMLAttributes<HTMLExerciseTestElement>;
         }
     }

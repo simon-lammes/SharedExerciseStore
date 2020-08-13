@@ -1,0 +1,6 @@
+{
+  "job": {
+    "explanation": "The correct order is: {{value}}.",
+    "description":"Your job is to traverse the following graph using the breadth-first-search algorithm. Click on the node that is traversed next until every node has been visited. Start with node 1. When there are multiple possible nodes to visit next, choose the node with the lowest number."
+  }
+}

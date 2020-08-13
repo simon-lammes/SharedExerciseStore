@@ -3,17 +3,25 @@ import cytoscape, {NodeDataDefinition} from 'cytoscape';
 import {standardGraphStyling} from '../../../utils/graph-configuration/standard-graph-styling';
 import {standardGraphLayout} from '../../../utils/graph-configuration/standard-graph-layout';
 import {ExerciseState, failure, success} from '../../../utils/flutter_interface';
+import i18next from 'i18next';
+import 'i18next-wc';
+import {loadTranslations} from '../../../utils/translations';
 
 @Component({
   tag: 'exercise-breadth-first-search',
   styleUrl: 'breadth-first-search.scss',
   shadow: true,
+  assetsDirs: ['locales/breadth-first-search']
 })
 export class BreadthFirstSearch implements ComponentInterface {
   networkContainer!: HTMLElement;
   solution = [1, 2, 5, 3, 6, 4];
   currentIndex = 0;
   @State() state: ExerciseState = 'active';
+
+  componentWillLoad(): Promise<void> | void {
+    return loadTranslations('breadth-first-search');
+  }
 
   componentDidLoad(): void {
     const cy = cytoscape({
@@ -89,17 +97,12 @@ export class BreadthFirstSearch implements ComponentInterface {
     return (
       <exercise-frame class="exercise-frame" state={this.state}>
         <p slot="job-description">
-          Your job is to traverse the following graph using the breadth-first-search algorithm.
-          Click on the node that is traversed next until every node has been visited. Start with node 1. When there are
-          multiple possible nodes to visit next, choose the node with the lowest number.
+          <intl-message i18next={i18next} label="job.description">
+          </intl-message>
         </p>
         <p slot="explanation">
-          As stated in the job description, the algorithm starts at node 1. Then it visits the direct neighbors of node
-          1, namely
-          2 and 5. It visits 2 first because as we said the node with the lowest number is visited first. After visiting
-          all neighbors of
-          node 1, it visits all neighbors of node 2 because this was the second node visited. We end up with the
-          order: {this.solution.toLocaleString()}.
+          <intl-message i18next={i18next} label="job.explanation" value={this.solution.join(', ')}>
+          </intl-message>
         </p>
         <div slot="exercise" class="network-container" ref={(el) => this.networkContainer = el as HTMLElement}>
         </div>

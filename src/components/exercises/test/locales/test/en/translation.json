@@ -1,0 +1,10 @@
+{
+  "job": {
+    "explanation": "The result of this test should be logged in the console.",
+    "description": "This is a test exercise. When you click on success, this exercise simulates that the user answered correctly."
+  },
+  "shared": {
+    "failure": "failure",
+    "success": "success"
+  }
+}

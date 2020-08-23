@@ -1,8 +1,8 @@
 import {Component, ComponentInterface, h, State} from '@stencil/core';
-import {ExerciseState, failure, success} from '../../../utils/flutter_interface';
 import i18next from 'i18next';
 import 'i18next-wc';
 import {loadTranslations} from '../../../utils/translations';
+import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
 
 @Component({
   tag: 'exercise-test',
@@ -15,15 +15,6 @@ export class Test implements ComponentInterface {
 
   componentWillLoad(): Promise<void> | void {
     return loadTranslations('test');
-  }
-
-  successButtonClicked() {
-    this.state = success();
-    console.log(this.state);
-  }
-
-  failureButtonClicked() {
-    this.state = failure();
   }
 
   render() {
@@ -42,11 +33,11 @@ export class Test implements ComponentInterface {
           </p>
         </div>
         <div slot="exercise" class="buttons are-large">
-          <button class="button is-success is-fullwidth" onClick={this.successButtonClicked.bind(this)}>
+          <button class="button is-success is-fullwidth" disabled={this.state !== 'active'} onClick={() => this.state = 'success'}>
             <intl-message i18next={i18next} label="shared.success">
             </intl-message>
           </button>
-          <button class="button is-danger is-fullwidth" onClick={this.failureButtonClicked.bind(this)}>
+          <button class="button is-danger is-fullwidth" disabled={this.state !== 'active'} onClick={() => this.state = 'failure'}>
             <intl-message i18next={i18next} label="shared.failure">
             </intl-message>
           </button>

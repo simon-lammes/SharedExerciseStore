@@ -7,11 +7,22 @@
 
   <script type="module" src="/build/exercises.esm.js"></script>
   <script nomodule src="/build/exercises.js"></script>
+  <script>
+    window.onload = () => {
+      const picker = document.getElementById("picker");
+      picker.addEventListener("stateChanged", (event) => {
+        console.log(event.detail);
+      });
+      picker.addEventListener("nextExerciseRequested", (event) => {
+        console.log(event.detail);
+      })
+    }
+  </script>
 
 </head>
 <body>
 
-  <exercise-picker></exercise-picker>
+  <exercise-picker id="picker"></exercise-picker>
 
 </body>
 </html>

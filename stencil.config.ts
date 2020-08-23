@@ -1,4 +1,4 @@
-import { Config } from '@stencil/core';
+import {Config} from '@stencil/core';
 import {sass} from '@stencil/sass';
 
 export const config: Config = {
@@ -10,7 +10,8 @@ export const config: Config = {
       esmLoaderPath: '../loader'
     },
     {
-      type: 'docs-readme'
+      type: 'docs-json',
+      file: 'dist/exercise_documentation.json'
     },
     {
       type: 'www',

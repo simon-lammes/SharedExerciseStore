@@ -2,11 +2,14 @@ import {Component, ComponentInterface, h, State} from '@stencil/core';
 import cytoscape, {NodeDataDefinition} from 'cytoscape';
 import {standardGraphStyling} from '../../../utils/graph-configuration/standard-graph-styling';
 import {standardGraphLayout} from '../../../utils/graph-configuration/standard-graph-layout';
-import {ExerciseState, failure, success} from '../../../utils/flutter_interface';
 import i18next from 'i18next';
 import 'i18next-wc';
 import {loadTranslations} from '../../../utils/translations';
+import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
 
+/**
+ * @tags networks, mathematics
+ */
 @Component({
   tag: 'exercise-breadth-first-search',
   styleUrl: 'breadth-first-search.scss',
@@ -84,11 +87,11 @@ export class BreadthFirstSearch implements ComponentInterface {
       if (isAnswerRight) {
         node.addClass('visited');
       } else {
-        this.state = failure();
+        this.state = 'failure';
         node.addClass('wrong');
       }
       if (this.currentIndex === this.solution.length && isAnswerRight) {
-        this.state = success();
+        this.state = 'success';
       }
     });
   }

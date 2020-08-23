@@ -19,6 +19,11 @@ export function loadTranslations(exerciseId: string): Promise<any> {
   return i18next.use(LanguageDetector).use(Backend).init({
     fallbackLng: 'en',
     load: 'languageOnly',
+    // Specify in which order the language is detected. More info at https://github.com/i18next/i18next-browser-languageDetector.
+    // First the htmlTag should be used which means that it looks for the lang attribe.
+    detection: {
+      order: ['htmlTag', 'cookie', 'querystring', 'localStorage', 'sessionStorage', 'navigator', 'path', 'subdomain'],
+    },
     backend: {
       loadPath: (lng, ns) => getAssetPath(`./locales/${exerciseId}/${lng}/${ns}.json`)
     }

@@ -44,7 +44,7 @@ export class ExerciseFrame implements ComponentInterface {
   startTime: number;
 
   @Watch('state')
-  onStateChanged(_oldState: ExerciseState, newState: ExerciseState) {
+  onStateChanged(newState: ExerciseState) {
     this.stateChanged.emit({
       newState,
     });

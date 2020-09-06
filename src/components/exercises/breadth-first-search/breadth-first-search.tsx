@@ -8,8 +8,8 @@ import {loadTranslations} from '../../../utils/translations';
 import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
 
 /**
- * @titles english: Breadth-First-Search, german: Breitensuche
  * @tags networks, mathematics
+ * @titles {"english": "Breadth-First-Search", "german": "Breitensuche"}
  */
 @Component({
   tag: 'exercise-breadth-first-search',

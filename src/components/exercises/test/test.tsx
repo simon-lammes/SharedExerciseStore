@@ -5,8 +5,8 @@ import {loadTranslations} from '../../../utils/translations';
 import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
 
 /**
- * @titles english: Test, german: Test
  * @tags test
+ * @titles {"english": "Test", "german": "Test"}
  */
 @Component({
   tag: 'exercise-test',

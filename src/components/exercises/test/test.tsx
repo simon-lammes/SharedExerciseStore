@@ -4,6 +4,10 @@ import 'i18next-wc';
 import {loadTranslations} from '../../../utils/translations';
 import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
 
+/**
+ * @title english: Test, german: Test
+ * @tags test
+ */
 @Component({
   tag: 'exercise-test',
   styleUrl: 'test.scss',

@@ -78,10 +78,11 @@ export class BreadthFirstSearch implements ComponentInterface {
     });
 
     cy.on('tap', 'node', (evt) => {
-      if (this.state !== 'active') {
+      const node = evt.target as NodeDataDefinition;
+      // Ignore tap, if exercise is not active any more or the user has already visited node.
+      if (this.state !== 'active' || node.hasClass('visited')) {
         return;
       }
-      const node = evt.target as NodeDataDefinition;
       const expectedId = this.solution[this.currentIndex++];
       // @ts-ignore
       const clickedId = node.id();

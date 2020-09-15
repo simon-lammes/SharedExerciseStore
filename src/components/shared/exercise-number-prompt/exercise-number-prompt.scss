@@ -1,0 +1,13 @@
+@import '../../../../node_modules/bulma/bulma.sass';
+
+:host {
+  display: block;
+}
+
+.center {
+  margin: auto
+}
+
+.is-flex {
+  align-items: center;
+}

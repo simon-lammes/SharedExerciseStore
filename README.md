@@ -9,6 +9,9 @@ few programming language should be able to create new exercises (introducing tho
 
 # Creating exercises
 
+This is a guido helping you to integrate new exercises. With the following information and a basic understanding of
+Stencil you are good to go.
+
 ## Adding translations
 
 This project uses [i18next](https://www.i18next.com/) for translations. There are no global translation files, instead,
@@ -40,26 +43,48 @@ you'll need to call `loadTranslations` in the `componentWillLoad` method. I deci
 because this is the first lifecycle method that gets called. Therefore, the loading of the translations will start very early 
 which will reduce loading times. Remember to return or await the Promise returned by `loadTranslations` so that the compnent
 knows when the translations are loaded and the component can be displayed. Otherwise, the component might be rendered
-before the translations are available which would look weird. The following is a minimal example of a component with translations.
+before the translations are available which would look weird.
+
+In order for every web component using its own translations, `laadTranslations` will return an isolated (not global) object
+containing just the translations that the component needs. The component uses it for getting its translations.
+
+## Documenting Exercises
+
+Exercises need to be documented so that this project provides metadata about its exercises.
+In fact, the app SharedExercises uses the generated JSON documentation for storing the exercises' metadata in the database.
+
+- Use the documentation tag `tag` to add a comma separated list of tags identifying the subjects of an exercise.
+- Use the documentation tag `titles` to add a JSON formatted object contain the exercises title in various languages.
+
+## Example Component
+
+The following is a minimal example of an exercise component. You can use as a starting point for creating new exercises.
 
 ```tsx
 import {setupTranslations} from '../../../utils/translations';
-import i18next from 'i18next';
+import i18n from 'i18next';
 import 'i18next-wc';
+
+/**
+ * @tags example, getting_started
+ * @titles {"english": "Just an Example", "german": "Einfach nur ein Beispiel"}
+ */
 
 @Component({
   tag: 'exercise-example',
   assetsDirs: ['locales/example']
 })
 export class Example implements ComponentInterface {
-  componentWillLoad(): Promise<void> | void {
-    return loadTranslations('example');
+  i18n: i18n;
+
+  async componentWillLoad(): Promise<void> {
+    this.i18n = await loadTranslations('example');
   }
 
   render() {
     return (
         <p>
-          <intl-message i18next={i18next} label="messages.greeting">
+          <intl-message i18next={this.i18n} label="messages.greeting">
           </intl-message>
         </p>
     );
@@ -71,4 +96,9 @@ export class Example implements ComponentInterface {
 
 To test your component run `npm install` and `npm start`. This will open the exercise picker component in the browser
 where you can pick the exercise that should be displayed and manually tested.
+
+## Rules and Conventions
+
+- Tags only use lowercase letters and separate words with an underscore. Example: graph_theory
+- The web components tags are prefixed with "exercise-". Example: "exercise-multiply-two-with-three"
 

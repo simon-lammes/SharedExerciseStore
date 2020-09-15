@@ -1,8 +1,8 @@
 import {Component, ComponentInterface, h, State} from '@stencil/core';
-import i18next from 'i18next';
 import 'i18next-wc';
-import {loadTranslations} from '../../../utils/translations';
 import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
+import {loadTranslations} from '../../../utils/translations';
+import {i18n} from 'i18next';
 
 /**
  * @tags test
@@ -15,10 +15,11 @@ import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
   assetsDirs: ['locales/test']
 })
 export class Test implements ComponentInterface {
+  i18n: i18n;
   @State() state: ExerciseState = 'active';
 
-  componentWillLoad(): Promise<void> | void {
-    return loadTranslations('test');
+  async componentWillLoad(): Promise<void> {
+    this.i18n = await loadTranslations('test');
   }
 
   render() {
@@ -26,23 +27,25 @@ export class Test implements ComponentInterface {
       <exercise-frame state={this.state}>
         <div slot="job-description">
           <p>
-            <intl-message i18next={i18next} label="job.description">
+            <intl-message i18next={this.i18n} label="job.description">
             </intl-message>
           </p>
         </div>
         <div slot="explanation">
           <p>
-            <intl-message i18next={i18next} label="job.explanation">
+            <intl-message i18next={this.i18n} label="job.explanation">
             </intl-message>
           </p>
         </div>
         <div slot="exercise" class="buttons are-large">
-          <button class="button is-success is-fullwidth" disabled={this.state !== 'active'} onClick={() => this.state = 'success'}>
-            <intl-message i18next={i18next} label="shared.success">
+          <button class="button is-success is-fullwidth" disabled={this.state !== 'active'}
+                  onClick={() => this.state = 'success'}>
+            <intl-message i18next={this.i18n} label="shared.success">
             </intl-message>
           </button>
-          <button class="button is-danger is-fullwidth" disabled={this.state !== 'active'} onClick={() => this.state = 'failure'}>
-            <intl-message i18next={i18next} label="shared.failure">
+          <button class="button is-danger is-fullwidth" disabled={this.state !== 'active'}
+                  onClick={() => this.state = 'failure'}>
+            <intl-message i18next={this.i18n} label="shared.failure">
             </intl-message>
           </button>
         </div>

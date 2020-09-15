@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+import i18next, {i18n} from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import {getAssetPath} from '@stencil/core';
@@ -14,9 +14,11 @@ import {getAssetPath} from '@stencil/core';
  * only render the component once the translations are available (or failed to load).
  * @param exerciseId The id of the exercise is contained in the components name. For example,
  * the component 'exercise-test' is for the exercise with the id 'test'.
+ * @return An instance containing the loaded translations. Use it for your translations.
  */
-export function loadTranslations(exerciseId: string): Promise<any> {
-  return i18next.use(LanguageDetector).use(Backend).init({
+export async function loadTranslations(exerciseId: string): Promise<i18n> {
+  const i18n = i18next.createInstance().use(LanguageDetector).use(Backend);
+  await i18n.init({
     fallbackLng: 'en',
     load: 'languageOnly',
     // Specify in which order the language is detected. More info at https://github.com/i18next/i18next-browser-languageDetector.
@@ -28,4 +30,5 @@ export function loadTranslations(exerciseId: string): Promise<any> {
       loadPath: (lng, ns) => getAssetPath(`./locales/${exerciseId}/${lng}/${ns}.json`)
     }
   });
+  return i18n;
 }

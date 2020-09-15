@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, Host, h, State} from '@stencil/core';
+import {Component, ComponentInterface, h, Host, State} from '@stencil/core';
 
 @Component({
   tag: 'exercise-picker',
@@ -17,6 +17,11 @@ export class ExercisePicker implements ComponentInterface {
         <exercise-breadth-first-search>
         </exercise-breadth-first-search>
       );
+    } else if (this.exercise === 'minimum-number-of-edges-of-connected-graph') {
+      exercise = (
+        <exercise-minimum-number-of-edges-of-connected-graph>
+        </exercise-minimum-number-of-edges-of-connected-graph>
+      );
     } else if (this.exercise === 'test') {
       exercise = (
         <exercise-test>
@@ -29,6 +34,7 @@ export class ExercisePicker implements ComponentInterface {
         <select onInput={e => this.onChange(e)}>
           <option disabled selected> -- select an exercise -- </option>
           <option value="breadth-first-search">Breadth First Search</option>
+          <option value="minimum-number-of-edges-of-connected-graph">Minimum Number of Edges of Connected Graph</option>
           <option value="test">Test</option>
         </select>
         {exercise}

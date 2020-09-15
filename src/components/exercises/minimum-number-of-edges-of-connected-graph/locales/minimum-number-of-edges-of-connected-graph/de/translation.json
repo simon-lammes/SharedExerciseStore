@@ -1,0 +1,7 @@
+{
+  "job": {
+    "explanation": "G \\text{ ist zusammenhängend. Somit hat } G \\text{ mindestens } |V| - 1 = 8 \\text{ Kanten.}",
+    "description": "\\text{Gegeben sei der zusammenhängende Graph } G(V,E) \\text{ mit } V=\\{a,b,c,d,e,f,g,h,i\\}.",
+    "prompt": "Wieviele Kanten hat G mindestens?"
+  }
+}

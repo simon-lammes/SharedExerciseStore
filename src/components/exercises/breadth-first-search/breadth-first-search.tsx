@@ -2,13 +2,13 @@ import {Component, ComponentInterface, h, State} from '@stencil/core';
 import cytoscape, {NodeDataDefinition} from 'cytoscape';
 import {standardGraphStyling} from '../../../utils/graph-configuration/standard-graph-styling';
 import {standardGraphLayout} from '../../../utils/graph-configuration/standard-graph-layout';
-import i18next from 'i18next';
+import {i18n} from 'i18next';
 import 'i18next-wc';
-import {loadTranslations} from '../../../utils/translations';
 import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
+import {loadTranslations} from '../../../utils/translations';
 
 /**
- * @tags networks, mathematics
+ * @tags graph_theory, mathematics
  * @titles {"english": "Breadth-First-Search", "german": "Breitensuche"}
  */
 @Component({
@@ -18,13 +18,14 @@ import {ExerciseState} from '../../shared/exercise-frame/exercise-frame';
   assetsDirs: ['locales/breadth-first-search']
 })
 export class BreadthFirstSearch implements ComponentInterface {
+  i18n: i18n;
   networkContainer!: HTMLElement;
   solution = [1, 2, 5, 3, 6, 4];
   currentIndex = 0;
   @State() state: ExerciseState = 'active';
 
-  componentWillLoad(): Promise<void> | void {
-    return loadTranslations('breadth-first-search');
+  async componentWillLoad(): Promise<void> {
+    this.i18n = await loadTranslations('breadth-first-search');
   }
 
   componentDidLoad(): void {
@@ -101,11 +102,11 @@ export class BreadthFirstSearch implements ComponentInterface {
     return (
       <exercise-frame class="exercise-frame" state={this.state}>
         <p slot="job-description">
-          <intl-message i18next={i18next} label="job.description">
+          <intl-message i18next={this.i18n} label="job.description">
           </intl-message>
         </p>
         <p slot="explanation">
-          <intl-message i18next={i18next} label="job.explanation" value={this.solution.join(', ')}>
+          <intl-message i18next={this.i18n} label="job.explanation" value={this.solution.join(', ')}>
           </intl-message>
         </p>
         <div slot="exercise" class="network-container" ref={(el) => this.networkContainer = el as HTMLElement}>

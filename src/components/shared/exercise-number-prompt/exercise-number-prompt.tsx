@@ -29,17 +29,17 @@ export class ExerciseNumberPrompt implements ComponentInterface {
           <slot name="explanation" slot="explanation">
           </slot>
           <div slot="exercise">
-            <form onSubmit={(e) => this.onSubmit(e)} class="columns">
+            <form onSubmit={(e) => this.onSubmit(e)} class="number-form">
               <div class="column">
                 <slot name="prompt">
                 </slot>
               </div>
-              <label class="column center mx-3 is-flex">
+              <label class="center mx-3 is-flex">
                 <intl-message i18next={this.i18n} label="answer">
                 </intl-message><span class="pr-2">: </span>
                 <input type="number" class="input is-primary" onInput={(event) => this.handleInput(event)} disabled={this.state !== 'active'}/>
               </label>
-              <button class="button center is-primary column mx-3" disabled={this.state !== 'active'}>
+              <button class="button center is-primary mx-3 my-3" disabled={this.state !== 'active'}>
                 ▶
                 <intl-message i18next={this.i18n} label="submit">
                 </intl-message>

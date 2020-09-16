@@ -11,3 +11,13 @@
 .is-flex {
   align-items: center;
 }
+
+slot[name=prompt]::slotted(*) {
+  text-align: center;
+}
+
+.number-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

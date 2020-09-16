@@ -9,7 +9,7 @@ import {loadTranslations} from '../../../utils/translations';
 
 /**
  * @tags graph_theory, mathematics
- * @titles {"english": "Breadth-First-Search", "german": "Breitensuche"}
+ * @languages english, german
  */
 @Component({
   tag: 'exercise-breadth-first-search',

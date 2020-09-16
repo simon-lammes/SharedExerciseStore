@@ -54,7 +54,7 @@ Exercises need to be documented so that this project provides metadata about its
 In fact, the app SharedExercises uses the generated JSON documentation for storing the exercises' metadata in the database.
 
 - Use the documentation tag `tag` to add a comma separated list of tags identifying the subjects of an exercise.
-- Use the documentation tag `titles` to add a JSON formatted object contain the exercises title in various languages.
+- Use the documentation tag `languages` to add a comma separated list with all languages supported by the exercise.
 
 ## Example Component
 
@@ -67,7 +67,7 @@ import 'i18next-wc';
 
 /**
  * @tags example, getting_started
- * @titles {"english": "Just an Example", "german": "Einfach nur ein Beispiel"}
+ * @languages english, german
  */
 
 @Component({

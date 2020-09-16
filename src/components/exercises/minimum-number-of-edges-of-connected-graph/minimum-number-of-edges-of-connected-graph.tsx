@@ -6,7 +6,7 @@ import '@navsnpm/katex-expression/dist';
 
 /**
  * @tags graph_theory, mathematics
- * @titles {"english": "Minimum Number of Edges of Connected Graph", "german": "Minimale Anzahl Kanten von einem Zusammenhängendem Graphen"}
+ * @languages english, german
  */
 @Component({
   tag: 'exercise-minimum-number-of-edges-of-connected-graph',

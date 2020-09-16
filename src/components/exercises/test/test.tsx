@@ -6,7 +6,7 @@ import {i18n} from 'i18next';
 
 /**
  * @tags test
- * @titles {"english": "Test", "german": "Test"}
+ * @languages english, german
  */
 @Component({
   tag: 'exercise-test',

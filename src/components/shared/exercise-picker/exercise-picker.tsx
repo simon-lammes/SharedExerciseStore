@@ -22,6 +22,11 @@ export class ExercisePicker implements ComponentInterface {
         <exercise-minimum-number-of-edges-of-connected-graph>
         </exercise-minimum-number-of-edges-of-connected-graph>
       );
+    } else if (this.exercise === 'modal-value') {
+      exercise = (
+        <exercise-modal-value>
+        </exercise-modal-value>
+      );
     } else if (this.exercise === 'test') {
       exercise = (
         <exercise-test>
@@ -35,6 +40,7 @@ export class ExercisePicker implements ComponentInterface {
           <option disabled selected> -- select an exercise -- </option>
           <option value="breadth-first-search">Breadth First Search</option>
           <option value="minimum-number-of-edges-of-connected-graph">Minimum Number of Edges of Connected Graph</option>
+          <option value="modal-value">Modal value</option>
           <option value="test">Test</option>
         </select>
         {exercise}

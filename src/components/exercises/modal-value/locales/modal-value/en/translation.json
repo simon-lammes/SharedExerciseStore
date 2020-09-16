@@ -1,0 +1,7 @@
+{
+  "job": {
+    "description": "In the original list {yellow, green, yellow, blue, green, black, grey, green, red} is green the most occurring value.",
+    "prompt": "How do you call those values (in the example 'green'), that are the most occurring in the original list?",
+    "possible-answers": "modal value,mode"
+  }
+}

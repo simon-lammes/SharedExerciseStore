@@ -1,0 +1,7 @@
+{
+  "job": {
+    "description": "In der Urliste {gelb, grün, gelb, blau, grün, schwarz, grau, grün, rot} kommt grün am häufigsten vor.",
+    "prompt": "Wie nennt man diejenigen Merkmalsausprägungen (im Beispiel 'grün'), die am häufigsten in einer Urliste vorkommen?",
+    "possible-answers": "Modalwert,Modus"
+  }
+}

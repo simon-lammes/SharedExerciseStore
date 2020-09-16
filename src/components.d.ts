@@ -14,12 +14,17 @@ export namespace Components {
     }
     interface ExerciseMinimumNumberOfEdgesOfConnectedGraph {
     }
+    interface ExerciseModalValue {
+    }
     interface ExerciseNumberPrompt {
         "expectedNumber": number;
     }
     interface ExercisePicker {
     }
     interface ExerciseTest {
+    }
+    interface ExerciseTextPrompt {
+        "possibleAnswers": string[];
     }
 }
 declare global {
@@ -41,6 +46,12 @@ declare global {
         prototype: HTMLExerciseMinimumNumberOfEdgesOfConnectedGraphElement;
         new (): HTMLExerciseMinimumNumberOfEdgesOfConnectedGraphElement;
     };
+    interface HTMLExerciseModalValueElement extends Components.ExerciseModalValue, HTMLStencilElement {
+    }
+    var HTMLExerciseModalValueElement: {
+        prototype: HTMLExerciseModalValueElement;
+        new (): HTMLExerciseModalValueElement;
+    };
     interface HTMLExerciseNumberPromptElement extends Components.ExerciseNumberPrompt, HTMLStencilElement {
     }
     var HTMLExerciseNumberPromptElement: {
@@ -59,13 +70,21 @@ declare global {
         prototype: HTMLExerciseTestElement;
         new (): HTMLExerciseTestElement;
     };
+    interface HTMLExerciseTextPromptElement extends Components.ExerciseTextPrompt, HTMLStencilElement {
+    }
+    var HTMLExerciseTextPromptElement: {
+        prototype: HTMLExerciseTextPromptElement;
+        new (): HTMLExerciseTextPromptElement;
+    };
     interface HTMLElementTagNameMap {
         "exercise-breadth-first-search": HTMLExerciseBreadthFirstSearchElement;
         "exercise-frame": HTMLExerciseFrameElement;
         "exercise-minimum-number-of-edges-of-connected-graph": HTMLExerciseMinimumNumberOfEdgesOfConnectedGraphElement;
+        "exercise-modal-value": HTMLExerciseModalValueElement;
         "exercise-number-prompt": HTMLExerciseNumberPromptElement;
         "exercise-picker": HTMLExercisePickerElement;
         "exercise-test": HTMLExerciseTestElement;
+        "exercise-text-prompt": HTMLExerciseTextPromptElement;
     }
 }
 declare namespace LocalJSX {
@@ -78,6 +97,8 @@ declare namespace LocalJSX {
     }
     interface ExerciseMinimumNumberOfEdgesOfConnectedGraph {
     }
+    interface ExerciseModalValue {
+    }
     interface ExerciseNumberPrompt {
         "expectedNumber"?: number;
     }
@@ -85,13 +106,18 @@ declare namespace LocalJSX {
     }
     interface ExerciseTest {
     }
+    interface ExerciseTextPrompt {
+        "possibleAnswers"?: string[];
+    }
     interface IntrinsicElements {
         "exercise-breadth-first-search": ExerciseBreadthFirstSearch;
         "exercise-frame": ExerciseFrame;
         "exercise-minimum-number-of-edges-of-connected-graph": ExerciseMinimumNumberOfEdgesOfConnectedGraph;
+        "exercise-modal-value": ExerciseModalValue;
         "exercise-number-prompt": ExerciseNumberPrompt;
         "exercise-picker": ExercisePicker;
         "exercise-test": ExerciseTest;
+        "exercise-text-prompt": ExerciseTextPrompt;
     }
 }
 export { LocalJSX as JSX };
@@ -101,9 +127,11 @@ declare module "@stencil/core" {
             "exercise-breadth-first-search": LocalJSX.ExerciseBreadthFirstSearch & JSXBase.HTMLAttributes<HTMLExerciseBreadthFirstSearchElement>;
             "exercise-frame": LocalJSX.ExerciseFrame & JSXBase.HTMLAttributes<HTMLExerciseFrameElement>;
             "exercise-minimum-number-of-edges-of-connected-graph": LocalJSX.ExerciseMinimumNumberOfEdgesOfConnectedGraph & JSXBase.HTMLAttributes<HTMLExerciseMinimumNumberOfEdgesOfConnectedGraphElement>;
+            "exercise-modal-value": LocalJSX.ExerciseModalValue & JSXBase.HTMLAttributes<HTMLExerciseModalValueElement>;
             "exercise-number-prompt": LocalJSX.ExerciseNumberPrompt & JSXBase.HTMLAttributes<HTMLExerciseNumberPromptElement>;
             "exercise-picker": LocalJSX.ExercisePicker & JSXBase.HTMLAttributes<HTMLExercisePickerElement>;
             "exercise-test": LocalJSX.ExerciseTest & JSXBase.HTMLAttributes<HTMLExerciseTestElement>;
+            "exercise-text-prompt": LocalJSX.ExerciseTextPrompt & JSXBase.HTMLAttributes<HTMLExerciseTextPromptElement>;
         }
     }
 }

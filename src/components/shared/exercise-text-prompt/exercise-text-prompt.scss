@@ -1,0 +1,23 @@
+@import '../../../../node_modules/bulma/bulma.sass';
+
+.center {
+  margin: auto
+}
+
+.is-flex {
+  align-items: center;
+}
+
+slot[name=prompt]::slotted(*) {
+  text-align: center;
+}
+
+.explanation {
+  margin: auto;
+}
+
+.text-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
